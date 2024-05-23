@@ -13,6 +13,7 @@ const createCustomer = asyncHandler(async (req, res) => {
     line,
     province,
     district,
+    source
   } = req.body;
 
   // Check if name is valid
@@ -43,6 +44,7 @@ const createCustomer = asyncHandler(async (req, res) => {
     line,
     province,
     district,
+    source
   });
 
   await customer.save();
@@ -70,6 +72,15 @@ const createCustomer = asyncHandler(async (req, res) => {
         "Customer is created."
       )
     );
+});
+
+const getCustomers = asyncHandler(async (req, res) => {
+  const { salesPerson } = req.query;
+  const customers = await Customer.find({ salesPerson });
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, customers, "Customers are retrieved."));
 });
 
 const createShopTypes = asyncHandler(async (req, res) => {
@@ -128,6 +139,22 @@ const createInterests = asyncHandler(async (req, res) => {
     );
 });
 
+const getInterests = asyncHandler(async (req, res) => {
+  const interests = await Interest.find();
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { interests }, "Interests are retrieved."));
+});
+
+const getShopTypes = asyncHandler(async (req, res) => {
+  const shopTypes = await ShopType.find();
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { shopTypes }, "ShopTypes are retrieved."));
+});
 
 
-export { createCustomer, createShopTypes, createInterests };
+
+export { createCustomer, getCustomers, getInterests, getShopTypes, createShopTypes, createInterests };
