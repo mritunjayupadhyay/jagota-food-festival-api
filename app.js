@@ -19,7 +19,6 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public")); // configure static file to save images locally
 
-app.use((req, res, next) => { res.send("Welcome to the API"); });
 app.use("/api/auth", authRouter);
 app.use("/api/uploads", uploadRouter);
 app.use("/api/customers", customerRouter);
