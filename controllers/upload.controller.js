@@ -11,7 +11,6 @@ const slugifyString = (str) => {
 const getSignedUrlFunc = asyncHandler(async (req, res) => {
   
     const { fileName, fileType } = req.body;    
-    console.log("body in upload controller", req.body, { fileName, fileType})
     if (!fileName || !fileType || fileName.trim() === '' || fileType.trim() === '') {
         return res
         .status(400)
