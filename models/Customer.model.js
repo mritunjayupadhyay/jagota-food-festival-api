@@ -8,6 +8,9 @@ const shopTypeSchema = new Schema({
     unique: true,
     lowercase: true,
     trim: true,
+  },
+  id: {
+    type: String,
   }
 });
 
@@ -31,7 +34,10 @@ const customerSchema = new Schema(
       trim: true,
       index: true,
     },
-    name: {
+    contactPersonName: {
+      type: String,
+    },
+    companyName: {
       type: String,
     },
     salesPerson: {
@@ -41,7 +47,7 @@ const customerSchema = new Schema(
       type: [String],
     },
     shop_type: {
-      type: [String],
+      type: [Object],
     },
     mobile: {
       type: String,
@@ -56,6 +62,21 @@ const customerSchema = new Schema(
       type: String,
     },
     district: {
+      type: String,
+    },
+    images: {
+      type: String,
+    },
+    audio: {
+      type: String,
+    },
+    attachments: {
+      type: [String],
+    },
+    customerType: {
+      type: String,
+    },
+    event: {
       type: String,
     },
   },

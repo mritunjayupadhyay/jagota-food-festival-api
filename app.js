@@ -4,6 +4,7 @@ import 'dotenv/config';
 import authRouter from "./routes/auth.routes.js";
 import uploadRouter from "./routes/upload.routes.js";
 import customerRouter from "./routes/customer.routes.js";
+import eventRouter from "./routes/event.routes.js";
 
 import { createServer } from "http";
 const app = express();
@@ -22,5 +23,6 @@ app.use(express.static("public")); // configure static file to save images local
 app.use("/api/auth", authRouter);
 app.use("/api/uploads", uploadRouter);
 app.use("/api/customers", customerRouter);
+app.use("/api/events", eventRouter);
 
 export { httpServer };

@@ -6,22 +6,27 @@ const createCustomer = asyncHandler(async (req, res) => {
   const {
     salesPerson,
     interested_in,
-    name,
+    contactPersonName,
+    companyName,
     shop_type,
     mobile,
     email,
     line,
     province,
     district,
-    source
+    event,
+    image,
+    audio,
+    attachments,
+    customerType,
   } = req.body;
 
   // Check if name is valid
-  if (!name || name.trim() === "") {
+  if (!contactPersonName || contactPersonName.trim() === "") {
     return res.status(400).json(new ApiResponse(400, null, "Invalid name"));
   }
   // Create username: remove spaces, convert to lowercase, replace spaces with underscore
-  const username = name.trim().toLowerCase().replace(/ /g, "_");
+  const username = contactPersonName.trim().toLowerCase().replace(/ /g, "_");
   const existedCustomer = await Customer.findOne({
     username,
   });
@@ -37,14 +42,19 @@ const createCustomer = asyncHandler(async (req, res) => {
     username,
     salesPerson,
     interested_in,
-    name,
+    contactPersonName,
+    companyName,
     shop_type,
     mobile,
     email,
     line,
     province,
     district,
-    source
+    event,
+    image,
+    audio,
+    attachments,
+    customerType,
   });
 
   await customer.save();
