@@ -11,11 +11,11 @@ const app = express();
 // const httpServer = createServer(app);
 
 // List of allowed origins
-// const allowedOrigins = [
-//     "http://localhost:3000/",
-//     "https://jagota-food-festival.mjcodes.dev",
-//     "https://jagota-food-festival-dev.pages.dev"
-// ];
+const allowedOrigins = [
+    "http://localhost:3000",
+    "https://jagota-food-festival.mjcodes.dev",
+    "https://jagota-food-festival-dev.pages.dev"
+];
 
 // CORS options
 const corsOptions = {
