@@ -11,8 +11,8 @@ const app = express();
 const httpServer = createServer(app);
 
 const corsOptions = {
-origin: '*',
-credentials: true,
+    origin: process.env.CORS_ORIGIN3,
+    credentials: true,
 };
 console.log("CORS_ORIGIN: ", process.env.CORS_ORIGIN, process.env.CORS_ORIGIN2, process.env.CORS_ORIGIN3);
 // global middlewares
