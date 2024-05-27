@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-    createCustomer, getCustomers, getInterests, getShopTypes, createShopTypes, createInterests
+    createCustomer, getCustomers, getOneCustomer, getInterests, getShopTypes, createShopTypes, createInterests
   } from "../controllers/customer.controller.js";
 
 const router = Router();
@@ -9,6 +9,12 @@ router
   .route("/")
   .get(
     getCustomers
+  );
+
+  router
+  .route("/:customerId")
+  .get(
+    getOneCustomer
   );
 
 router

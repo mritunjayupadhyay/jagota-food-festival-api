@@ -84,9 +84,18 @@ const createCustomer = asyncHandler(async (req, res) => {
     );
 });
 
+const getOneCustomer = asyncHandler(async (req, res) => {
+  const { customerId } = req.params;
+  const customer = await Customer.findById(customerId);
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, customer, "Customer are retrieved."));
+});
+
 const getCustomers = asyncHandler(async (req, res) => {
   const { salesPerson } = req.query;
-  const customers = await Customer.find({ salesPerson });
+  const customers = await Customer.find({ salesPerson }).select({ contactPersonName: 1, _id: 1, companyName: 1 });
 
   return res
     .status(200)
@@ -167,4 +176,4 @@ const getShopTypes = asyncHandler(async (req, res) => {
 
 
 
-export { createCustomer, getCustomers, getInterests, getShopTypes, createShopTypes, createInterests };
+export { createCustomer, getCustomers, getOneCustomer, getInterests, getShopTypes, createShopTypes, createInterests };
