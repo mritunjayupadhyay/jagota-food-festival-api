@@ -11,11 +11,11 @@ const app = express();
 // const httpServer = createServer(app);
 
 // List of allowed origins
-const allowedOrigins = [
-    "http://localhost:3000",
-    "https://jagota-food-festival.mjcodes.dev",
-    "https://jagota-food-festival-dev.pages.dev"
-];
+// const allowedOrigins = [
+//     "http://localhost:3000/",
+//     "https://jagota-food-festival.mjcodes.dev",
+//     "https://jagota-food-festival-dev.pages.dev"
+// ];
 
 // CORS options
 const corsOptions = {
@@ -33,7 +33,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // const corsOptions = {
-//     origin: process.env.CORS_ORIGIN3,
+//     origin: [process.env.CORS_ORIGIN, process.env.CORS_ORIGIN2, process.env.CORS_ORIGIN3],
 //     credentials: true,
 // };
 // console.log("CORS_ORIGIN: ", process.env.CORS_ORIGIN, process.env.CORS_ORIGIN2, process.env.CORS_ORIGIN3);
