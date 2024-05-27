@@ -14,6 +14,7 @@ const corsOptions = {
 origin: [process.env.CORS_ORIGIN, process.env.CORS_ORIGIN2, process.env.CORS_ORIGIN3],
 credentials: true,
 };
+console.log("CORS_ORIGIN: ", process.env.CORS_ORIGIN, process.env.CORS_ORIGIN2, process.env.CORS_ORIGIN3);
 // global middlewares
 app.use(cors(corsOptions));
 app.use(express.json({ limit: "16kb" }));
