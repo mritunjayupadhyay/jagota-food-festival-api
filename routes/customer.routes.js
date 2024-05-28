@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-    createCustomer, getCustomers, getOneCustomer, getInterests, getShopTypes, createShopTypes, createInterests
+    createCustomer, getAllCustomers,  getCustomers, getOneCustomer, getInterests, getShopTypes, createShopTypes, createInterests
   } from "../controllers/customer.controller.js";
 
 const router = Router();
@@ -12,9 +12,9 @@ router
   );
 
   router
-  .route("/:customerId")
+  .route("/all")
   .get(
-    getOneCustomer
+    getAllCustomers
   );
 
 router
@@ -40,5 +40,11 @@ router
   router
   .route("/add-interest")
   .post(createInterests)
+
+  router
+  .route("/:customerId")
+  .get(
+    getOneCustomer
+  );
 
 export default router;

@@ -109,6 +109,14 @@ const getCustomers = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, customers, "Customers are retrieved."));
 });
 
+const getAllCustomers = asyncHandler(async (req, res) => {
+  const customers = await Customer.find().select({ contactPersonName: 1, _id: 1, companyName: 1 });
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, customers, "Customers are retrieved."));
+});
+
 const createShopTypes = asyncHandler(async (req, res) => {
   const {
     names,
@@ -183,4 +191,4 @@ const getShopTypes = asyncHandler(async (req, res) => {
 
 
 
-export { createCustomer, getCustomers, getOneCustomer, getInterests, getShopTypes, createShopTypes, createInterests };
+export { createCustomer, getAllCustomers, getCustomers, getOneCustomer, getInterests, getShopTypes, createShopTypes, createInterests };
