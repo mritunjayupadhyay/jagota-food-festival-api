@@ -29,7 +29,10 @@ const createCustomer = asyncHandler(async (req, res) => {
     return res.status(400).json(new ApiResponse(400, null, "Invalid name"));
   }
   // Create username: remove spaces, convert to lowercase, replace spaces with underscore
-  const username = contactPersonName.trim().toLowerCase().replace(/ /g, "_");
+  const trimmedName = (contactPersonName || "").trim().toLowerCase().replace(/ /g, "_");
+  const trimmedCompanyName = (companyName || "").trim().toLowerCase().replace(/ /g, "_");
+  const trimmedMobile = (mobile || "").trim().toLowerCase().replace(/ /g, "_");
+  const username = `${trimmedName}_${trimmedCompanyName}_${trimmedMobile}`;
   const existedCustomer = await Customer.findOne({
     username,
   });
