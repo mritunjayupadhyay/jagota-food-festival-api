@@ -19,7 +19,7 @@ const createCustomer = asyncHandler(async (req, res) => {
     audio,
     attachments,
     customerType,
-    country
+    country = "Thailand"
   } = req.body;
 
   // Check if name is valid
