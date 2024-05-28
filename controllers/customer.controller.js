@@ -19,6 +19,7 @@ const createCustomer = asyncHandler(async (req, res) => {
     audio,
     attachments,
     customerType,
+    country
   } = req.body;
 
   // Check if name is valid
@@ -55,6 +56,7 @@ const createCustomer = asyncHandler(async (req, res) => {
     audio,
     attachments,
     customerType,
+    country
   });
 
   await customer.save();
