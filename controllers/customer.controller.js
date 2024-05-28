@@ -22,6 +22,8 @@ const createCustomer = asyncHandler(async (req, res) => {
     country = "Thailand"
   } = req.body;
 
+  console.log("body", country, req.body);
+
   // Check if name is valid
   if (!contactPersonName || contactPersonName.trim() === "") {
     return res.status(400).json(new ApiResponse(400, null, "Invalid name"));

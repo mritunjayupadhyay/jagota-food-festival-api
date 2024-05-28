@@ -61,6 +61,9 @@ const customerSchema = new Schema(
     province: {
       type: String,
     },
+    country: {
+      type: String,
+    },
     district: {
       type: String,
     },
