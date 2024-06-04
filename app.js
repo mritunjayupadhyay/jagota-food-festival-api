@@ -5,6 +5,7 @@ import authRouter from "./routes/auth.routes.js";
 import uploadRouter from "./routes/upload.routes.js";
 import customerRouter from "./routes/customer.routes.js";
 import eventRouter from "./routes/event.routes.js";
+import visionRouter from "./routes/vision.routes.js";
 
 const app = express();
 
@@ -48,5 +49,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/uploads", uploadRouter);
 app.use("/api/customers", customerRouter);
 app.use("/api/events", eventRouter);
+app.use("/api/vision", visionRouter);
 
 export { app };
