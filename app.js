@@ -28,6 +28,8 @@ const corsOptions = {
   optionsSuccessStatus: 200 // For legacy browser support
 };
 
+console.log(process.env.MONGODB_URL);
+
 // Apply CORS middleware
 app.use(cors(corsOptions));
 
